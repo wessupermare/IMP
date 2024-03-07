@@ -1,0 +1,41 @@
+Spec	::=	ε
+		  | Directive Spec
+		  | Rules
+					  
+Rules	::= ParseRule
+		  | ParseRule Rules
+		  | LexRule
+		  | LexRule Rules
+
+Directive	::= "start" id
+			  | "strict"
+			  | "absorb" AltTail
+
+ParseRule	::= RuleName derives Alternates
+
+Alternates	::= Alternate
+			  | Alternate vBar Alternates
+
+Alternate	::= eps
+			  | casedLiteral AltTail
+			  | uncasedLiteral AltTail
+			  | id AltTail
+
+AltTail	::= casedLiteral AltTail
+		  | uncasedLiteral AltTail
+		  | id AltTail
+		  | ε
+
+LexRule		::= RuleName regex
+
+RuleName	::= id
+			  | id ruleClasses
+
+derives			:= ::=
+vBar			:= \|
+eps				:= ε|#
+casedLiteral	:= '([^']|\\')*'
+uncasedLiteral	:= "([^"]|\\")*"
+ruleClasses		:= (\.([^'"\|\sε#:=.]|:[^:=])+)+
+id				:= ([^'"\|\sε#:=.]|:[^:=])+
+regex			:= :=[^\n]+\n*

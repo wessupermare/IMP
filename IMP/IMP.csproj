@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<VersionPrefix>1.3.0</VersionPrefix>
+		<PackageId>com.wsleeman.$(AssemblyName)</PackageId>
+		<Title>IMP: In-Memory Generalised Parsing</Title>
+		<Authors>westonsupermare</Authors>
+		<Company>WSleeman</Company>
+		<Description>An in-memory GLL parser generator capable of interpreting BNF specifications.</Description>
+		<PackageReleaseNotes>Added saving/loading of specifications and fixed an issue preventing the parsing of some rules starting with nullable nonterminals.</PackageReleaseNotes>
+	</PropertyGroup>
+
+</Project>
